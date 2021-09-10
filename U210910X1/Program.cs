@@ -7,6 +7,9 @@ namespace U210910X1
     {
         static void Main(string[] args)
         {
+            //Lista
+            List<Customer> MyCustomers = new List<Customer>();
+
             while (true)
             {
                 //Vad som visas när programmet öppnas.
@@ -46,8 +49,6 @@ namespace U210910X1
                     Console.WriteLine("Tryck på ENTER för att gå tillbaka till menyn.");
                     Console.ReadLine();
 
-                    //Lista
-                    List<Customer> MyCustomers = new List<Customer>();
                     MyCustomers.Add(myCustomer);
                     
                     //Rensar konsolen inför nästa inmatning.
@@ -58,7 +59,9 @@ namespace U210910X1
                 if (choice == "2")
                 {
                     //Ta fram antalet kunde
-                    Console.WriteLine($"I nuläget finns det  kunder inskrivna i systemet.");
+                    Console.WriteLine("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
+                    Console.WriteLine($"I nuläget finns det {MyCustomers.Count} kunder inskrivna i systemet.\n");
+                    Console.WriteLine("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨\n");
                     Console.WriteLine("Tryck på ENTER för att gå tillbaka till menyn.");
                     Console.ReadLine();
                     Console.Clear();
@@ -67,8 +70,15 @@ namespace U210910X1
                 //Visa alla kunder
                 if (choice == "3")
                 {
-                    //Går igenom alla kunder i listan och matar ut all info om dem i konsollen.
+                    Console.WriteLine("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
 
+                    //Går igenom alla kunder i listan och matar ut all info om dem i konsollen.
+                    foreach (Customer c in MyCustomers)
+                    {
+                        Console.WriteLine($"{c.Name} {c.Phone} {c.Adress}");
+                    }
+
+                    Console.WriteLine("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
 
                     Console.WriteLine("Tryck på ENTER för att gå tillbaka till menyn.");
                     Console.ReadLine();
@@ -82,17 +92,18 @@ namespace U210910X1
                     break;
                 }
 
+                //Vid felaktig inmatining
                 if (choice != "1" && choice != "2" && choice != "3" && choice != "4")
                 {
+                    //Skriver ut meddelande om felaktig inmatning.
                     Console.WriteLine("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
                     Console.WriteLine("FELAKTIG INMATNING \n" +
-                                      "För att använda programmet mata in ett av de fyra alternativen 1, 2, 3 eller 4.");
-                    Console.WriteLine("Tryck på ENTER för att gå vidare.");
+                                      "För att använda programmet mata in ett av de fyra alternativen 1, 2, 3 eller 4.\n" +
+                                      "Tryck på ENTER för att gå vidare.");
                     Console.WriteLine("¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨¨");
                     Console.ReadLine();
                     Console.Clear();
                 }
-
             }
         }
     }
@@ -105,5 +116,4 @@ namespace U210910X1
         public string Adress { get; set; }
 
     }
-
 }
